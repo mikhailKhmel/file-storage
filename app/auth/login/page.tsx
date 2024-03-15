@@ -27,7 +27,7 @@ export default function LoginPage() {
         setIsLoading(true)
         const result = await login(values)
         if (result.success) {
-            router.push('/')
+            router.push('/home')
         } else {
             form.setError(result.error?.path as "email" | "password" | "root" | `root.${string}`, { message: result.error?.message })
         }
@@ -43,7 +43,6 @@ export default function LoginPage() {
                             <CardTitle>Авторизация</CardTitle>
                         </CardHeader>
                         <CardContent>
-
                             <FormField
                                 control={form.control}
                                 name="email"

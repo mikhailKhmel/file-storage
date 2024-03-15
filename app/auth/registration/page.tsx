@@ -24,7 +24,7 @@ export default function RegistrationPage() {
     async function onSubmit(values: registrationSchemaType) {
         const result = await registration(values)
         if (result.success) {
-            return router.push('/')
+            return router.push('/home')
         } else {
             form.setError(result.error?.path as "email" | "password" | "confirmPassword" | "root" | `root.${string}`, { message: result.error?.message })
         }

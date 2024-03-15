@@ -16,4 +16,11 @@ export const loginSchema = z.object({
     password: z.string().min(4, { message: "Алло, пароль маленький" }),
 })
 
-export type loginSchemaType = z.infer<typeof loginSchema> 
+export type loginSchemaType = z.infer<typeof loginSchema>
+
+const MAX_FILE_SIZE = 20000000;
+export const fileSchema = z.object({
+    data: z.any()
+        .refine((file: File) => file?.size !== 0, "Алло, файл обязателен")
+})
+export type fileSchemaType = z.infer<typeof fileSchema>

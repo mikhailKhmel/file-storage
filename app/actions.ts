@@ -1,6 +1,6 @@
 'use server'
 
-import { loginSchemaType, registrationSchemaType } from "@/lib/schemas";
+import { fileSchemaType, loginSchemaType, registrationSchemaType } from "@/lib/schemas";
 import { AuthResult } from "@/lib/types";
 import { PrismaClient } from "@prisma/client";
 import bcrypt from 'bcrypt'
@@ -46,4 +46,8 @@ export async function login(values: loginSchemaType): Promise<AuthResult> {
     cookieStorage.set('token', user.token)
 
     return { success: true }
+}
+
+export async function upload(values: any) {
+    console.log(values)
 }

@@ -16,3 +16,13 @@ model User {
   password String
   token    String
 }
+
+model File {
+  id         String   @id @default(uuid())
+  name       String
+  data       Bytes
+  uploadedAt DateTime @default(now())
+  isPublic   Boolean  @default(false)
+  userId     String
+  type       String
+}
