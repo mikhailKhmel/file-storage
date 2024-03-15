@@ -132,7 +132,7 @@ export default function HomePage() {
         }
         let result = ''
         for (let id of ids) {
-            result += `${process.env.HOST}/${id} `
+            result += `${process.env.NEXT_PUBLIC_HOST}/${id} `
         }
         navigator.clipboard.writeText(result)
         toast({
